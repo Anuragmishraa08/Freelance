@@ -1,0 +1,59 @@
+/* style.css - FULL REPLACEMENT */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;700&display=swap');
+
+:root {
+    --deep-space: #050505;
+    --text-main: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --mesh-opacity: 1;
+}
+
+body.light-mode {
+    --deep-space: #f8fafc;
+    --text-main: #0f172a;
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --mesh-opacity: 0.2;
+}
+
+body {
+    background-color: var(--deep-space) !important;
+    color: var(--text-main) !important;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    margin: 0;
+}
+
+/* FORCE THEME ON ALL SECTIONS & FOOTER */
+body.light-mode section, 
+body.light-mode footer, 
+body.light-mode div,
+body.light-mode nav {
+    background-color: transparent !important; /* Let body background show through */
+    color: var(--text-main) !important;
+}
+
+/* Fix specific footer text visibility */
+body.light-mode p, 
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode h4,
+body.light-mode span:not(.text-blue-500) {
+    color: var(--text-main) !important;
+}
+
+.mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: var(--mesh-opacity);
+    background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    filter: blur(100px);
+}
+
+.glass-panel {
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+    backdrop-filter: blur(15px);
+}
