@@ -60,126 +60,170 @@ const journey = [
   },
 ];
 
+const aboutBlocks = [
+  {
+    title: "Personal Overview",
+    content:
+      "My name is Atul Ranjith, a 25-year-old media and communication student with a strong academic background in aviation, air transport management, and sports media. I was born on 22 November 2000, and I am an Indian national from Kerala.",
+  },
+  {
+    title: "Academic Background",
+    content:
+      "I completed schooling in Kerala, then earned my Bachelor's degree in Aviation from Jain University, Bangalore. I later completed a Postgraduate degree in Air Transport Management at De Montfort University, Leicester, UK. I am currently pursuing a Master's in Media and Communication at MAHE Dubai.",
+  },
+  {
+    title: "Interests and Hobbies",
+    content:
+      "I have followed cricket from a very young age, and this grew into a passion for match analysis, sports writing, and storytelling. I also enjoy reading books on sports, journalism, biographies, and media studies, which sharpen my analytical thinking and writing style.",
+  },
+  {
+    title: "Career Aspiration",
+    content:
+      "My long-term goal is to establish myself as a sports journalist and cricket writer. I aim to combine my media education with my passion for sport, work with reputed sports media platforms, and keep growing as a writer, analyst, and storyteller.",
+  },
+];
+
+const whyWebsitePoints = [
+  "Showcase my writing skills and analytical ability",
+  "Build a professional portfolio in cricket and sports journalism",
+  "Share my insights, opinions, and passion for the sport",
+  "Take meaningful steps toward pursuing sports journalism as a full-time career",
+];
+
 function HomePage() {
   return (
-    <section
-      id="home"
-      className="reveal page-transition grid lg:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-10 items-center"
-    >
-      <div className="hero-intro">
-        <p className="badge hero-item hero-item-1">Available for media opportunities</p>
-        <h1 className="hero-item hero-item-2 mt-5 text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-          Sports Media and
-          <span className="text-sky-300"> Aviation Professional</span>
-        </h1>
-        <p className="hero-item hero-item-3 mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-          I create engaging sports narratives backed by research and analytical thinking.
-          My academic journey across aviation and media helps me communicate stories
-          with both clarity and depth.
-        </p>
-        <div className="hero-item hero-item-4 mt-7 flex flex-wrap gap-3">
-          <a href="/cv.pdf" download="Atul-Ranjith-CV.pdf" className="btn btn-primary">
-            Download CV
-          </a>
-          <a href="#contact" className="btn btn-secondary">
-            Contact Me
-          </a>
+    <div className="page-transition">
+      <section
+        id="home"
+        className="reveal grid lg:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-10 items-center"
+      >
+        <div className="hero-intro">
+          <p className="badge hero-item hero-item-1">Available for media opportunities</p>
+          <h1 className="hero-item hero-item-2 mt-5 text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+            Sports Media and
+            <span className="text-sky-300"> Aviation Professional</span>
+          </h1>
+          <p className="hero-item hero-item-3 mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            I create engaging sports narratives backed by research and analytical thinking.
+            My academic journey across aviation and media helps me communicate stories
+            with both clarity and depth.
+          </p>
+          <div className="hero-item hero-item-4 mt-7 flex flex-wrap gap-3">
+            <a href="/cv.pdf" download="Atul-Ranjith-CV.pdf" className="btn btn-primary">
+              Download CV
+            </a>
+            <a href="#contact" className="btn btn-secondary">
+              Contact Me
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div className="profile-card reveal profile-float">
-        <img
-          src="/img/atul-portrait.png"
-          alt="Atul Ranjith profile image"
-          className="w-full h-[320px] sm:h-[380px] lg:h-[430px] object-cover rounded-2xl"
-          loading="lazy"
-        />
-      </div>
-    </section>
+        <div className="profile-card reveal profile-float">
+          <img
+            src="/img/atul-portrait.png"
+            alt="Atul Ranjith profile image"
+            className="w-full h-[320px] sm:h-[380px] lg:h-[430px] object-cover rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section className="reveal mt-14">
+        <div className="grid lg:grid-cols-2 gap-5">
+          <article className="card p-6 reveal reveal-stagger" style={{ "--delay": "60ms" }}>
+            <p className="text-xs uppercase tracking-[0.18em] text-sky-300/80">About Snapshot</p>
+            <h2 className="text-2xl font-semibold mt-2">Who I Am</h2>
+            <p className="mt-3 text-slate-300 leading-relaxed">
+              Media and communication postgraduate with aviation management background,
+              focused on cricket storytelling, research-driven analysis, and clear communication.
+            </p>
+            <div className="mt-4 grid sm:grid-cols-2 gap-2">
+              {strengths.slice(0, 4).map((item) => (
+                <span key={item} className="strength-item text-sm">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <Link to="/about" className="inline-block mt-4 text-sky-300 hover:text-sky-200">
+              Read full About page
+            </Link>
+          </article>
+
+          <article className="card p-6 reveal reveal-stagger" style={{ "--delay": "140ms" }}>
+            <p className="text-xs uppercase tracking-[0.18em] text-sky-300/80">Work Snapshot</p>
+            <h2 className="text-2xl font-semibold mt-2">Featured Work</h2>
+            <div className="mt-4 space-y-3">
+              {featuredWork.slice(0, 2).map((item) => (
+                <div key={item.title} className="home-work-item">
+                  <p className="font-semibold">{item.title}</p>
+                  <p className="text-sm text-slate-300">{item.type}</p>
+                </div>
+              ))}
+            </div>
+            <Link to="/work" className="inline-block mt-4 text-sky-300 hover:text-sky-200">
+              Explore all work
+            </Link>
+          </article>
+        </div>
+      </section>
+    </div>
   );
 }
 
 function AboutPage({ timelineActive, journeyRef }) {
   return (
     <div className="page-transition">
-      <section id="about" className="reveal mt-2 card p-6 md:p-8">
+      <section id="about" className="reveal mt-2">
         <h2 className="section-title">About Me</h2>
-        <p className="section-copy mt-4">
-          My name is Atul Ranjith, a 25-year-old media and communication student
-          with a strong academic background in aviation, air transport management,
-          and sports media. I was born on 22 November 2000, and I am an Indian
-          national, originally from Kerala.
-        </p>
-        <p className="section-copy mt-4">
-          I completed my schooling in Kerala, after which I pursued my
-          Bachelor's degree in Aviation from Jain University, Bangalore. To
-          further specialize in the aviation sector, I completed my
-          Postgraduate degree in Air Transport Management from De Montfort
-          University, Leicester, United Kingdom. Currently, I am pursuing a
-          Master's degree in Media and Communication at MAHE Dubai, where I am
-          sharpening my skills in journalism, media analysis, and content
-          creation.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-8">Core Strengths</h3>
-        <ul className="mt-3 grid md:grid-cols-2 gap-3 text-slate-300">
-          {strengths.map((item, idx) => (
-            <li
-              key={item}
-              className="strength-item reveal reveal-stagger"
-              style={{ "--delay": `${idx * 90}ms` }}
+        <div className="mt-6 grid lg:grid-cols-2 gap-5">
+          {aboutBlocks.map((block, idx) => (
+            <article
+              key={block.title}
+              className="card p-6 reveal reveal-stagger about-block"
+              style={{ "--delay": `${idx * 110}ms` }}
             >
-              {item}
-            </li>
+              <h3 className="text-xl font-semibold">{block.title}</h3>
+              <p className="section-copy mt-3">{block.content}</p>
+            </article>
           ))}
-        </ul>
+        </div>
 
-        <h3 className="text-xl font-semibold mt-8">Interests and Hobbies</h3>
-        <p className="section-copy mt-3">
-          I have been an avid cricket follower from a very young age. Over the
-          years, this interest has evolved into a deep passion for cricket
-          analysis, sports writing, and storytelling. Beyond cricket, I enjoy
-          reading books, particularly those related to sports, journalism,
-          biographies, and media studies, which help shape my analytical
-          thinking and writing style.
-        </p>
+        <article className="card p-6 mt-5 reveal reveal-stagger" style={{ "--delay": "420ms" }}>
+          <h3 className="text-xl font-semibold">Core Strengths</h3>
+          <ul className="mt-3 grid md:grid-cols-2 gap-3 text-slate-300">
+            {strengths.map((item, idx) => (
+              <li
+                key={item}
+                className="strength-item reveal reveal-stagger"
+                style={{ "--delay": `${idx * 80}ms` }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </article>
 
-        <h3 className="text-xl font-semibold mt-8">Career Aspiration</h3>
-        <p className="section-copy mt-3">
-          My long-term goal is to establish myself as a sports journalist and
-          cricket writer, combining my academic background in media with my
-          lifelong passion for the sport. I aspire to work with reputed sports
-          media platforms and continue growing as a writer, analyst, and
-          storyteller.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-8">Why This Website?</h3>
-        <p className="section-copy mt-3">
-          Cricket has always been more than just a game for me. It is a
-          narrative, a culture, and a platform for powerful storytelling. From
-          match analysis to player performances and tactical breakdowns, I have
-          always been fascinated by cricket journalism and sports writing.
-        </p>
-        <ul className="mt-3 grid md:grid-cols-2 gap-3 text-slate-300">
-          <li className="strength-item">
-            Showcase my writing skills and analytical ability
-          </li>
-          <li className="strength-item">
-            Build a professional portfolio in cricket and sports journalism
-          </li>
-          <li className="strength-item">
-            Share my insights, opinions, and passion for the sport
-          </li>
-          <li className="strength-item">
-            Take meaningful steps toward pursuing sports journalism as a
-            full-time career
-          </li>
-        </ul>
-        <p className="section-copy mt-4">
-          Through this platform, I aim to contribute, however small, to the
-          world of sports media by producing thoughtful, well-researched, and
-          engaging cricket content.
-        </p>
+        <article className="card p-6 mt-5 reveal reveal-stagger" style={{ "--delay": "520ms" }}>
+          <h3 className="text-xl font-semibold">Why This Website?</h3>
+          <p className="section-copy mt-3">
+            Cricket has always been more than just a game for me. It is a narrative,
+            a culture, and a platform for powerful storytelling. From match analysis
+            to player performances and tactical breakdowns, I have always been
+            fascinated by cricket journalism and sports writing.
+          </p>
+          <ul className="mt-3 grid md:grid-cols-2 gap-3 text-slate-300">
+            {whyWebsitePoints.map((point, idx) => (
+              <li key={point} className="strength-item reveal reveal-stagger" style={{ "--delay": `${idx * 80}ms` }}>
+                {point}
+              </li>
+            ))}
+          </ul>
+          <p className="section-copy mt-4">
+            Through this platform, I aim to contribute, however small, to the world
+            of sports media by producing thoughtful, well-researched, and engaging
+            cricket content.
+          </p>
+        </article>
       </section>
 
       <section id="journey-page" ref={journeyRef} className="reveal mt-16">

@@ -291,7 +291,29 @@ h3 {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.home-work-item {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.home-work-item:hover {
+  border-color: rgba(125, 211, 252, 0.6);
+  transform: translateY(-2px);
+}
+
+.about-block {
+  min-height: 220px;
+}
+
 .theme-light .strength-item {
+  border-color: rgba(15, 23, 42, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.theme-light .home-work-item {
   border-color: rgba(15, 23, 42, 0.15);
   background: rgba(255, 255, 255, 0.8);
 }
